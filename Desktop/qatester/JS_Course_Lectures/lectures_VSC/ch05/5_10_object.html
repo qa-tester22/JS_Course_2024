@@ -1,0 +1,243 @@
+<!DOCTYPE>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>JS Objects</title>
+    </head>
+    <body>
+        <p><h2>Object-Oriented Javascript example</h2></p>
+        <p><h3>This example requires you to enter commands in your browser's JavaScript console</h3></p>
+        <script>
+            const newPeople = {
+                name: ["Bob", "Smith"],
+                age: 32,
+                gender: "male",
+                interests: ["JS", "testing"],
+                bio: function () {
+                    alert (
+                        this.name[0] + 
+                        " " + 
+                        this.name[1] + 
+                        " is " +
+                        this.age + 
+                        " years old. He likes " +
+                        this.interests[0] +
+                        " and " +
+                        this.interests[1] +
+                        ".",
+                    );
+                },
+                greeting: function () {
+                    alert ("Hi! I'm " + this.name[0] + ".")
+                },
+            };
+newPeople.name;
+newPeople.name[0];
+newPeople.age;
+newPeople.interests[1];
+newPeople.bio();
+newPeople.greeting();
+
+let myDataName = "height";
+let myDataValue = "1.75m";
+newPeople[myDataname] = myDataValue;
+
+const myDiv = document.createElement("div");
+const myVideo = document.querySelector("video");
+
+        </script>
+
+        <p>What's This? Chair Configurator</p>
+        <script>
+            let myChair = {
+                "cushionMaterial" : "",
+                "numberOfLegs" : "",
+                "legHeight" : ""
+            };
+
+            function configureChair() {
+                let userValue;
+                
+                for (let property in myChair) {
+                    if (myChair.hasOwnProperty(property)) {
+                        userValue = prompt("Enter a value for " + property);
+                        myChair[property] = userValue;
+                    }
+                }
+            }
+
+            function writeChairReceipt() {
+                document.write("<h2>Your chair will have the following configuration:</h2>");
+
+                for (let property in myChair) {
+                    if (myChair.hasOwnProperty(property)){
+                        document.write(property + ": " + myChair[property] + "<br>");
+                    }
+                }
+            }
+            configureChair();
+            writeChairReceipt();
+        </script>
+        <p><h2>Make me a sandwich</h2></p>
+        <script>
+            let sandwich = {
+                meat: "",
+                cheese: "",
+                bread: "",
+                condiment: "",
+                makeSandwich: function (meat, cheese, bread, condiment) {
+                    sandwich.meat = meat;
+                    sandwich.cheese = cheese;
+                    sandwich.bread = bread;
+                    sandwich.condiment = condiment;
+
+                    let mySandwich = sandwich.bread + ", " + sandwich.meat + ", " + sandwich.cheese + ", " + sandwich.condiment;
+
+                    return mySandwich;
+                }
+            }
+
+            let sandwichOrder = sandwich.makeSandwich("ham", "cheddar", "wheat", "spicy mustard");
+            document.write(sandwichOrder);
+        </script>
+
+        <p><h2>Make a sandwich with this</h2></p>
+        <script>
+            sandwich = {
+                meat: "",
+                cheese: "",
+                bread: "",
+                condiment: "",
+                makeSandwich: function (meat, cheese, bread, condiment) {
+                    this.meat = meat;
+                    this.cheese = cheese;
+                    this.bread = bread;
+                    this.condiment = condiment;
+
+                    let mySandwich = this.bread + ", " + this.meat + ", " + this.cheese + ", " + this.condiment 
+
+                    return mySandwich;
+                }
+            };
+
+            sandwichOrder = sandwich.makeSandwich("turkey", "swiss", "sourdough", "mayonnaise");
+
+                        
+            document.write(sandwichOrder);
+        </script>
+
+        <p><h2>Inheritance demo</h2></p>
+        <script>
+            function Person() {
+                this.eyes = 2;
+                this.ears = 2;
+                this.arms = 2;
+                this.hands = 2;
+                this.feet = 2;
+                this.legs = 2;
+                this.species = "Homo sapien";
+            }
+
+            let andrew = new Person();
+            alert("Andrew has " + andrew.feet + " feet!");
+            
+        </script>
+    </body>
+</html>
+<!--
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Object-oriented JavaScript example</title>
+  </head>
+
+  <body>
+    <p>This example requires you to enter commands in your browser's JavaScript console (see <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools">What are browser developer tools</a> for more information).</p>
+    
+    <script>
+
+    </script>
+  </body>
+
+</html>
+-->
+
+<!--
+    <!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Object-oriented JavaScript class further exercises</title>
+  </head>
+
+  <body>
+    <p>This example requires you to enter commands in your browser's JavaScript console (see <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools">What are browser developer tools</a> for more information).</p>
+
+  </body>
+
+    <script>
+      function Person(first, last, age, gender, interests) {
+        this.name = {
+          'first': first,
+          'last' : last
+        };
+        this.age = age;
+        this.gender = gender;
+        this.interests = interests;
+        this.bio = function() {
+          // First define a string, and make it equal to the part of
+          // the bio that we know will always be the same.
+          var string = this.name.first + ' ' + this.name.last + ' is ' + this.age + ' years old. ';
+          // define a variable that will contain the pronoun part of
+          // the second sentence
+          var pronoun;
+
+          // check what the value of gender is, and set pronoun
+          // to an appropriate value in each case
+          if(this.gender === 'male' || this.gender === 'Male' || this.gender === 'm' || this.gender === 'M') {
+            pronoun = 'He likes ';
+          } else if(this.gender === 'female' || this.gender === 'Female' || this.gender === 'f' || this.gender === 'F') {
+            pronoun = 'She likes ';
+          } else {
+            pronoun = 'They like ';
+          }
+
+          // add the pronoun string on to the end of the main string
+          string += pronoun;
+
+          // use another conditional to structure the last part of the
+          // second sentence depending on whether the number of interests
+          // is 1, 2, or 3
+          if(this.interests.length === 1) {
+            string += this.interests[0] + '.';
+          } else if(this.interests.length === 2) {
+            string += this.interests[0] + ' and ' + this.interests[1] + '.';
+          } else {
+            // if there are more than 2 interests, we loop through them
+            // all, adding each one to the main string followed by a comma,
+            // except for the last one, which needs an and & a full stop
+            for(var i = 0; i < this.interests.length; i++) {
+              if(i === this.interests.length - 1) {
+                string += 'and ' + this.interests[i] + '.';
+              } else {
+                string += this.interests[i] + ', ';
+              }
+            }
+          }
+
+          // finally, with the string built, we alert() it
+          alert(string);
+        };
+        this.greeting = function() {
+          alert('Hi! I\'m ' + this.name.first + '.');
+        };
+      };
+
+      let person1 = new Person('Tammi', 'Smith', 32, 'neutral', ['music', 'skiing', 'kickboxing']);
+    </script>
+</html>
+-->

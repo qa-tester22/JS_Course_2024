@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hello, HTML!</title>
+</head>
+
+<body>
+    <h1>This is HTML</h1>
+    <p id="introduction">This simple document was written with Hypertext Markup Language.</p>
+    <script>
+        document.getElementById("introduction").innerText = "This document was written with Hypertext Markup Language and modified with inline JavaScript.";
+    </script>
+</body>
+
+</html>
+
+<!-- Код с ошибкой:
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hello, HTML!</title>
+</head>
+<body>
+  <h1>This is HTML</h1>
+  <p id="introduction">This simple document was written with Hypertext Markup Language.</p>
+  <script src="fileName.js">используем этот файл</script>
+</body>
+</html>
+
+Задание: исправьте этот код так, чтобы вместо подключения внешнего JavaScript файла напрямую в HTML, использовался встроенный JavaScript внутри тега <script>.
+-->
+
+<!-- Исправленный код с использованием встроенного JavaScript внутри тега `<script>`: выводится не первоначальный текст со строки 10, а написанный с помощью JS текст на строке 12.
+-->
