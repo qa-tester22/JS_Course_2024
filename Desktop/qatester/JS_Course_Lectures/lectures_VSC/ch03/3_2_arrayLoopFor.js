@@ -7,5 +7,7 @@ for (let i = 0; i < fLen; i++) {
 };
 text += '</ul>';
 
-console.log(text);
+console.log(text); // <ul><li>Banana</li><li>Orange</li><li>Apple</li><li>Mango</li></ul>
 document.getElementById('demo2').innerHTML = text;
+
+// Использование циклов на сайте. выводим список фруктов из массива.

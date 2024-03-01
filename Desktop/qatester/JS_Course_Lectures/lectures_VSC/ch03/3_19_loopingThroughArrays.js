@@ -27,7 +27,7 @@ console.log(`alphabet with letters: ${alphabet}`);
 alphabet = []
 for (let i = 97; i <= 122; i++) {
     alphabet.push(String.fromCharCode(i));
-    console.log(`alphabet with for-loop: ${alphabet}`);
+    console.log(`alphabet with for-loop: ${alphabet}`);  // выводит наполненность массива на каждой итерации цикла.
 }
 
-console.log(`alphabet with for-loop: ${alphabet}`);
+console.log(`alphabet with for-loop: ${alphabet}`);  // выводит готовый массив букв.

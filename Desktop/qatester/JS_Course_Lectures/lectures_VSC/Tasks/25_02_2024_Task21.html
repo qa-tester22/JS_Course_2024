@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JavaScript This Test</title>
+</head>
+<body>
+
+<div id="question"></div>
+<div id="options"></div>
+<button onclick="checkAnswer()">Check Answer</button>
+
+<script>
+// Вопрос
+let question = "Что будет значением 'this' внутри функции, если она вызвана как метод объекта?";
+
+// Пример кода JavaScript
+let code = `
+let person = {
+    name: 'John',
+    age: 30,
+    sayHello: function() {
+        console.log('Hello, my name is ' + this.name);
+    }
+};
+
+person.sayHello(); // Вызов метода объекта
+`;
+
+// Варианты ответов
+let options = [
+    "Глобальный объект window",
+    "Объект, для которого вызвана функция",
+    "Прототип объекта, для которого вызвана функция",
+    "Undefined"
+];
+
+// Правильный ответ
+let correctAnswer = "Объект, для которого вызвана функция";
+
+// Функция, которая выводит вопрос, код и варианты ответов
+function displayQuestion() {
+    document.getElementById("question").innerHTML = "<p>" + question + "</p>" + "<pre><code>" + code + "</code></pre>";
+    let optionsHtml = "";
+    for (let i = 0; i < options.length; i++) {
+        optionsHtml += "<input type='radio' name='answer' value='" + options[i] + "'>" + options[i] + "<br>";
+    }
+    document.getElementById("options").innerHTML = optionsHtml;
+}
+
+// Функция, которая проверяет ответ пользователя
+function checkAnswer() {
+    let userAnswer = document.querySelector("input[name='answer']:checked").value;
+    if (userAnswer === correctAnswer) {
+        alert("Правильно!");
+    } else {
+        alert("Неправильно. Правильный ответ: " + correctAnswer);
+    }
+}
+
+// Отображаем вопрос при загрузке страницы
+displayQuestion();
+</script>
+
+</body>
+</html>
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JavaScript This Test</title>
+</head>
+<body>
+
+<div id="question"></div>
+<div id="options"></div>
+<button onclick="checkAnswer()">Check Answer</button>
+
+<script>
+// Вопрос
+let question = "Что будет значением 'this' внутри функции, если она вызвана как метод объекта?";
+
+// Варианты ответов
+let options = [
+    "Глобальный объект window",
+    "Объект, для которого вызвана функция",
+    "Прототип объекта, для которого вызвана функция",
+    "Undefined"
+];
+
+// Правильный ответ
+let correctAnswer = "Объект, для которого вызвана функция";
+
+// Функция, которая выводит вопрос и варианты ответов
+function displayQuestion() {
+    document.getElementById("question").innerText = question;
+    let optionsHtml = "";
+    for (let i = 0; i < options.length; i++) {
+        optionsHtml += "<input type='radio' name='answer' value='" + options[i] + "'>" + options[i] + "<br>";
+    }
+    document.getElementById("options").innerHTML = optionsHtml;
+}
+
+// Функция, которая проверяет ответ пользователя
+function checkAnswer() {
+    let userAnswer = document.querySelector("input[name='answer']:checked").value;
+    if (userAnswer === correctAnswer) {
+        alert("Правильно!");
+    } else {
+        alert("Неправильно. Правильный ответ: " + correctAnswer);
+    }
+}
+
+// Отображаем вопрос при загрузке страницы
+displayQuestion();
+</script>
+
+</body>
+</html>
+
+
+    Вот пример простого теста с вопросом о ключевом слове `this` в JavaScript и четырьмя вариантами ответа:
+Этот код создает простой тест с вопросом о ключевом слове `this` в JavaScript и четырьмя вариантами ответа. Пользователь может выбрать один из вариантов ответа, а затем нажать кнопку "Check Answer", чтобы проверить правильность своего ответа.
+-->

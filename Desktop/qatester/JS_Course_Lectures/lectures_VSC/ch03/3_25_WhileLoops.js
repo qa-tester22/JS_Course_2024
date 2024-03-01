@@ -22,7 +22,7 @@ alert("Congratulations! That's exactly right!"); // do this after exiting the lo
 let key = 5;
 while(key >= 15) {
     console.log(key++);
-}; // не выполнится ни разу
+} // не выполнится ни разу
 
 let line = 25;
 while(line >= 15) {

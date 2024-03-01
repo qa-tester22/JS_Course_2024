@@ -99,3 +99,23 @@ console.log("Массивы arr и newArr равны: " + arraysAreEqual(arr, ne
 
 
 console.log("Массивы arr и temporaryArr равны: " + arraysAreEqual(arr, temporaryArr));
+
+****************************
+МДН MDN
+
+Сравнение строк
+Разработчики на C имеют для сравнения строк функцию strcmp(). В JavaScript вы просто используете операторы меньше и больше:
+
+JS
+Copy to Clipboard
+var a = "a";
+var b = "b";
+if (a < b) {
+  // true
+  print(a + " меньше чем " + b);
+} else if (a > b) {
+  print(a + " больше чем " + b);
+} else {
+  print(a + " и " + b + " равны.");
+}
+Подобный результат также может быть достигнут путём использования метода localeCompare(), имеющегося у всех экземпляров String.
