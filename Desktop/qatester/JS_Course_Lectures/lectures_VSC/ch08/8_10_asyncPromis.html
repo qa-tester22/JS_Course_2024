@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Async JS</title>
+</head>
+<body>
+    <label for="quota">Number of primes:</label>
+    <input type="text" id="quota" name="quota" value="1000000">
+
+    <button id="generate">Generate primes</button>
+    <button id="reload">Reload</button>
+
+    <div id="output"></div>
+
+    <textarea id="user-input" rows="5" cols="62">Try typing in here immediately after pressing "Generate primes"</textarea>
+
+    <p><h2>Started XHR request</h2></p>
+    <button id="xhr">Click to start request</button>
+    <button id="reloading">Reload now</button>
+
+    <pre readonly class="event-log"></pre>
+
+    <script>
+        const MAX_PRIME = 1000000;
+
+        function isPrime(n) {
+            for (let i = 2; i <= Math.sqrt(n); i++) {
+                if (n % i === 0) {
+                    return false;
+                }
+            }
+            return n > 1;
+        }
+
+        const random = (max) => Math.floor(Math.random() * max);
+
+        function generatePrimes(quota) {
+            const primes = [];
+            while (primes.length < quota) {
+                const candidate = random(MAX_PRIME);
+                if (isPrime(candidate)) {
+                    primes.push(candidate);
+                }
+            }
+            return primes;
+        }
+
+        const quotaInput = document.querySelector("#quota");
+        const output = document.querySelector("#output");
+        const xhrButton = document.querySelector("#xhr");
+        const reloadButton = document.querySelector("#reload");
+        const eventLog = document.querySelector(".event-log");
+        const reloadingButton = document.querySelector("#reloading");
+
+        document.querySelector("#generate").addEventListener("click", () => {
+            const primes = generatePrimes(quotaInput.value);
+            output.textContent = `Finished generating ${quotaInput.value} primes: ${primes}`;
+        });
+
+        xhrButton.addEventListener("click", () => {
+            eventLog.textContent = "";
+
+            const xhr = new XMLHttpRequest();
+
+            xhr.addEventListener("loadend", () => {
+                eventLog.textContent = `${eventLog.textContent}Finished with status: ${xhr.status}\n`;
+            });
+
+            xhr.open(
+                "GET",
+                "https://raw.githubusercontent.com/mdn/content/main/files/en-us/_wikihistory.json"
+            );
+            xhr.send();
+            eventLog.textContent = `${eventLog.textContent}Started XHR request\n`;        
+        });
+
+        reloadingButton.addEventListener("click", () => {
+            eventLog.textContent = "";
+            document.location.reload();
+        });
+
+        reloadButton.addEventListener("click", () => {
+            document.location.reload();
+        });
+    </script>
+</body>
+</html>
+
+
+<!-- 8_03_asynchronousJS.js 
+    <!DOCTYPE html>
+<html>
+    <head>
+        <title>Async JS</title>
+    </head>
+    <body>
+        <label for="quota">Number of primes:</label>
+        <input type="text" id="quota" name="quota" value="1000000">
+
+        <button id="generate">Generate primes</button>
+        <button id="reload">Reload</button>
+
+        <div id="output"></div>
+
+        <textarea id="user-input" rows="5" cols="62">Try typing in here immediately after pressing "Generate primes"</textarea>
+
+        <div id="output">Finished generating 1000000 primes!</div>
+        <script>
+            const MAX_PRIME = 1000000;
+
+            function isPrime(n) {
+                for (let i = 2; i <= Math.sqrt(n); i++) {
+                    if (n % i === 0) {
+                        return false;
+                    }
+                }
+                return n > 1;
+            }
+
+            const random = (max) => Math.floor(Math.random() * max);
+
+            function generatePrimes(quota) {
+                const primes = [];
+                while (primes.length < quota) {
+                    const candidate = random(MAX_PRIME);
+                    if (isPrime(candidate)) {
+                        primes.push(candidate);
+                    }
+                }
+                return primes;
+            }
+
+            const quota = document.querySelector("#quota");
+            const output = document.querySelector("#output");
+
+            document.querySelector("#generate").addEventListener("click", () => {
+                const primes = generatePrimes(quota.value);
+                output.textContent = `Finished generating ${quota.value} primes: ${primes}`;
+            });
+
+            document.querySelector("#reload").addEventListener("click", () => {
+                document.location.reload();
+            });
+
+            
+        </script>
+    </body>
+</html> -->

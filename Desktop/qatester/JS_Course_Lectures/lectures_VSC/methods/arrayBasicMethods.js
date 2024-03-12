@@ -447,6 +447,16 @@ arrLength = arr.length;
 console.log(`Метод arr.length:  arrLength = ${arrLength} и  
 arr = ${arr}.`);
 
+// const arr = [1, 2, 3, 4, 5 ] ;
+arr.slice(3);  // 11 возвращает [4, 5] ; arr неизменен
+arr.slice(2, 4 );   // 11 возвраща ет [3, 41 ; arr неизменен
+arr.slice(-2);   // 11 возвращает [4, 5] ; arr неизменен
+arr.slice(l, -2 );   // 11 возвращает [2, 3] ; arr неизменен
+arr.slice(-2, -1);  // 11 возвращает [ 4 1 ; arr неизменен 
+
+
+
+
 /*
 Это методы массивов в JavaScript, которые могут быть полезны при работе с массивами.
 */

@@ -150,7 +150,7 @@ The delete operator is designed to be used on object properties. It has no effec
 
 The delete operator should not be used on predefined JavaScript object properties. It can crash your application.
 
-Ключевое deleteслово удаляет как значение свойства, так и само свойство.
+Ключевое delete слово удаляет как значение свойства, так и само свойство.
 
 После удаления свойство нельзя будет использовать, пока оно не будет добавлено снова.
 

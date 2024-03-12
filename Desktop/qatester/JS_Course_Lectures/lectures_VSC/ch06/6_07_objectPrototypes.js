@@ -43,6 +43,7 @@ function PersonConstr(first, last, age, eyecolor) {
   this.age = age;
   this.eyeColor = eyecolor;
   this.nationality = "English";
+
 }
 
 /*
@@ -144,3 +145,10 @@ console.log(myMother.valueOf());  // тот же конструктор объе
 Сначала браузер проверяет, имеет ли объект myMother доступный в нем метод valueOf(), как определено в его конструкторе PersonConstr().
 Это не так, поэтому следующим шагом браузер проверяет, имеет ли прототип объекта (Object()) конструктора PersonConstr() доступный в нем метод valueOf(). Так оно и есть, поэтому он вызывается, и все хорошо!
 */
+
+PersonConstr.prototype.country = "USA";
+
+
+console.log(myFather.country);  // USA
+
+console.log(myMother);  // USA
