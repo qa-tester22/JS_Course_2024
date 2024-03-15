@@ -1,26 +1,47 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Async JS</title>
 </head>
+
 <body>
+    <h1>JS Modules</h1>
+
+    <p id="demo"></p>
+
     <label for="quota">Number of primes:</label>
     <input type="text" id="quota" name="quota" value="1000000">
 
     <button id="generate">Generate primes</button>
     <button id="reload">Reload</button>
 
-    <div id="output"></div>
+    <div id="output-div"></div>
+    <div>| </div>
+    <div>| </div>
+    <div>| </div>
+    <div>| </div>
 
-    <textarea id="user-input" rows="5" cols="62">Try typing in here immediately after pressing "Generate primes"</textarea>
+    <!-- Задаем размер поля для вывода чисел -->
+    <textarea id="output" rows="10" cols="50" readonly></textarea>
 
-    <p><h2>Started XHR request</h2></p>
+    <textarea id="user-input" rows="5"
+        cols="62">Try typing in here immediately after pressing "Generate primes"</textarea>
+
+    <p>
+    <h2>Started XHR request</h2>
+    </p>
     <button id="xhr">Click to start request</button>
     <button id="reloading">Reload now</button>
 
     <pre readonly class="event-log"></pre>
 
-    <script>
+    <script type="module">
+        import message from "./message.js";
+        import {name, age} from "./person.js";
+
+        document.getElementById("demo").innerHTML = message() + " Do you know, " + name + " is " + age;
+
         const MAX_PRIME = 1000000;
 
         function isPrime(n) {
@@ -46,7 +67,7 @@
         }
 
         const quotaInput = document.querySelector("#quota");
-        const output = document.querySelector("#output");
+        const output = document.querySelector("#output-div");
         const xhrButton = document.querySelector("#xhr");
         const reloadButton = document.querySelector("#reload");
         const eventLog = document.querySelector(".event-log");
@@ -54,8 +75,10 @@
 
         document.querySelector("#generate").addEventListener("click", () => {
             const primes = generatePrimes(quotaInput.value);
-            output.textContent = `Finished generating ${quotaInput.value} primes: ${primes}`;
+            const outputTextarea = document.querySelector("#output");
+            outputTextarea.value = `Finished generatin ${quotaInput.value} primes: ${primes}`;
         });
+
 
         xhrButton.addEventListener("click", () => {
             eventLog.textContent = "";
@@ -71,7 +94,7 @@
                 "https://raw.githubusercontent.com/mdn/content/main/files/en-us/_wikihistory.json"
             );
             xhr.send();
-            eventLog.textContent = `${eventLog.textContent}Started XHR request\n`;        
+            eventLog.textContent = `${eventLog.textContent}Started XHR request\n`;
         });
 
         reloadingButton.addEventListener("click", () => {
@@ -84,6 +107,7 @@
         });
     </script>
 </body>
+
 </html>
 
 
