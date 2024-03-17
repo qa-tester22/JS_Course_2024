@@ -201,7 +201,7 @@ Date
 Function
 
 String
-Numcber
+Number
 Boolean
 
 Только у значений undefined и null нет объектов-обёрток.

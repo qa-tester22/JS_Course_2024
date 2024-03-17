@@ -116,6 +116,10 @@ let coffeeMachine2 = new CoffeeMachine2(100);
 // устанавливаем количество воды
 // coffeeMachine2.waterAmount = -10; // Error: Отрицательное количество воды
 
+// добавляем воды
+coffeeMachine2.waterAmount = 200;
+console.log(coffeeMachine2); 
+
 /*
 Теперь доступ под контролем, поэтому указать воду ниже нуля не удалось.
 

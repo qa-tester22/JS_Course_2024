@@ -501,8 +501,7 @@ function Person(first, last, age, gender, interests) {
 }
 Все методы определены в прототипе конструктора. Например:
 
-JS
-Copy to Clipboard
+
 Person.prototype.greeting = function () {
   alert("Hi! I'm " + this.name.first + ".");
 };
@@ -515,8 +514,7 @@ Person.prototype.greeting = function () {
 Определение функции-конструктора Teacher()
 Первое, что нам нужно сделать, это создать конструктор Teacher() - добавьте ниже следующий код:
 
-JS
-Copy to Clipboard
+
 function Teacher(first, last, age, gender, interests, subject) {
   Person.call(this, first, last, age, gender, interests);
 
@@ -530,8 +528,8 @@ function Teacher(first, last, age, gender, interests, subject) {
 
 В качестве примечания мы могли бы просто сделать это:
 
-JS
-Copy to Clipboard
+
+
 function Teacher(first, last, age, gender, interests, subject) {
   this.name = {
     first,
@@ -547,16 +545,14 @@ function Teacher(first, last, age, gender, interests, subject) {
 Наследование от конструктора без параметров
 Обратите внимание, что если конструктор, от которого вы наследуете, не принимает значения своего свойства из параметров, вам не нужно указывать их в качестве дополнительных аргументов в call(). Так, например, если у вас было что-то действительно простое:
 
-JS
-Copy to Clipboard
+
 function Brick() {
   this.width = 10;
   this.height = 20;
 }
 Вы можете наследовать свойства width и height, выполнив это (как и другие шаги, описанные ниже, конечно):
 
-JS
-Copy to Clipboard
+
 function BlueGlassBrick() {
   Brick.call(this);
 
@@ -569,8 +565,8 @@ function BlueGlassBrick() {
 Пока все хорошо, но у нас есть проблема. Мы определили новый конструктор и у него есть свойство prototype, которое по умолчанию просто содержит ссылку на саму конструкторскую функцию. Он не содержит методов свойства prototype конструктора Person. Чтобы увидеть это, введите Object.getOwnPropertyNames(Teacher.prototype) в поле ввода текста или в вашу консоль JavaScript. Затем введите его снова, заменив Teacher на Person. Новый конструктор не наследует эти методы. Чтобы увидеть это, сравните выводы в консоль Person.prototype.greeting и Teacher.prototype.greeting. Нам нужно заставить Teacher() наследовать методы, определённые на прототипе Person(). Итак, как мы это делаем?
 
 Добавьте следующую строку ниже своего предыдущего добавления:
-JS
-Copy to Clipboard
+
+
 Teacher.prototype = Object.create(Person.prototype);
 Здесь наш друг create() снова приходит на помощь. В этом случае мы используем его для создания нового объекта и делаем его значением Teacher.prototype. Новый объект имеет свой прототип Person.prototype и, следовательно, наследует, если и когда это необходимо, все доступные методы Person.prototype.
 Нам нужно сделать ещё одну вещь, прежде чем двигаться дальше. После добавления последней строки, Teacher.prototype.constructor стало равным Person(), потому что мы просто устанавливаем Teacher.prototype для ссылки на объект, который наследует его свойства от Person.prototype! Попробуйте сохранить код, загрузите страницу в браузере и введите Teacher.prototype.constructor в консоль для проверки.
@@ -585,8 +581,7 @@ Object.defineProperty(Teacher.prototype, 'constructor', {
 
 Самый простой способ сделать это - определить его на прототипе Teacher() - добавить в нижнюю часть кода следующее:
 
-JS
-Copy to Clipboard
+
 Teacher.prototype.greeting = function () {
   var prefix;
 
@@ -623,8 +618,7 @@ Teacher.prototype.greeting = function () {
 Попробуйте пример
 Теперь, когда вы ввели весь код, попробуйте создать экземпляр объекта из Teacher(), поставив ниже вашего JavaScript-кода (или что-то похожее по вашему выбору):
 
-JS
-Copy to Clipboard
+
 var teacher1 = new Teacher(
   "Dave",
   "Griffiths",

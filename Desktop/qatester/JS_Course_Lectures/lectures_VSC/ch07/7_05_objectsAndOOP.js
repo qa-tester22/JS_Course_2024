@@ -358,7 +358,7 @@ const madeline = { name: "Madeline" };
 // но все же в ней используется ' this ' !
 
 function greet() {
-    return ` Привет ! Меня зовут ${this.name} ! `;
+    return `££££ Привет ! Меня зовут ${this.name} ! `;
 }
 
 console.log(greet());  //  Привет ! Меня зовут undefined ! - ' this ' не привязана
@@ -419,10 +419,12 @@ console.log(Math.max(...arrMath)); // 15
 Функция Ьind позволяет перманентно ассоциировать значение
 для this с функцией. Предположим, что мы распространяем свой метод update и хотим удостовериться, что в нем переменной this всегда будет присвоено значение bruce, независимо от того, как он будет вызван (даже с функцией call, apply или другой функцией bind). Функция bind позволяет сделать так.
 */
-
+console.log("?????")
+console.log(bruce);
 const updateBruce = update.bind(bruce);
 updateBruce(1904, " actor");
 console.log(bruce); // { name: 'Bruce', birthYear: 1904, occupation: ' actor' }
+console.log(updateBruce);  // [Function: bound update]
 
 updateBruce.call(madeline, 1274, " king");
 console.log(bruce);  // { name: 'Bruce', birthYear: 1274, occupation: ' king' }
