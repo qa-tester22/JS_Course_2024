@@ -1000,3 +1000,47 @@ function madeInsurable(o) {
 
 Таким образом, основное различие между `prototype` и `__proto__` заключается в их назначении и использовании: `prototype` используется для определения прототипа функции, а `__proto__` используется для установки прототипа объекта.
 */
+
+class Product {
+    constructor(name, price) {
+        this.name = name;
+        this.price = price;
+        this.quantity = 0;
+    }
+    buy(quantity) {
+        this.quantity += quantity;
+    }
+    sell(quantity) {
+        if (this.quantity < quantity) {
+            throw new Error("Not enough stock available");
+        }
+        this.quantity -= quantity;
+    }
+}
+class Discount {
+    constructor(discountPercentage) {
+        this.discountPercentage = discountPercentage;
+    }
+    applyDiscount(product) {
+        const discountedPrice = product.price * (1 - this.discountPercentage / 100);
+        return discountedPrice;
+    }
+}
+function makeDiscountable(product) {
+    product.applyDiscount = function(discountPercentage) {
+        return this.price * (1 - discountPercentage / 100);
+    };
+}
+const laptop = new Product("Laptop", 1000);
+const discount = new Discount(10);
+makeDiscountable(laptop);
+console.log("Discounted Price:", laptop.applyDiscount(10)); // Output: 900
+//discount.applyDiscount(laptop); // Error: laptop.applyDiscount is not a function
+console.log(laptop);
+
+
+
+
+
+
+

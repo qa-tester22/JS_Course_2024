@@ -23,6 +23,7 @@
 /*
 1. Задача. Решение.
 */
+
 class Shape {
     name;
     sides;

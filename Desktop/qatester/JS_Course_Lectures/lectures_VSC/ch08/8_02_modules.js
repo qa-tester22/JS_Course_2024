@@ -1,4 +1,7 @@
 /*
+о модулях можно почитать 
+https://habr.com/ru/companies/otus/articles/798455/
+
 w3schools.com
 
 Модули

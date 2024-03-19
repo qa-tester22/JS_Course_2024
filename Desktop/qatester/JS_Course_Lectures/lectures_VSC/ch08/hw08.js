@@ -225,12 +225,12 @@ const result= [
 ✓ Test passed: Admin can delete another user.
 ✓ Test passed: Reset password works as expected.
 
+***************************************************************************************************************************************************************************************************************************************************************************************************
 */
 
 /*
 1. Задача. Решение.
 */
-
 class Person {
 
     constructor(first, last, age, gender, interests) {
@@ -294,6 +294,7 @@ let teacher1 = new Teacher('Dave', 'Griffiths', 31, 'male', ['football', 'cooker
 
 person1.greeting();  // Hi! I'm Tammi.
 teacher1.greeting();  // Hello. My name is  Mr. Griffiths, and I teach mathematics.
+
 
 /*
 4. Задача. Решение.
@@ -400,6 +401,7 @@ console.log(result[1].deleteUser("carter")); // Должно вернуть "The
 
 console.log(result[0].resetPassword("newPassword")); // Должно вернуть "Your password has been updated"
 console.log(result[1].resetPassword("newPassword")); // Должно вернуть "Your password has been updated"
+*/
 
 /*
 Это лишь примеры тестов, которые вы можете написать, чтобы проверить правильность вашего кода. В реальном проекте вы, вероятно, захотите написать более полные и комплексные тесты, чтобы удостовериться, что ваше приложение работает как ожидается.
