@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Script-Type" content="text/javascript">
+
+        <title>Сегодняшняя дата</title>
+
+        <script type="text/javascript"></script>
+
+        <script language="JavaScript">
+            // Определяем функцию для дальнейшего использования
+
+            function print_todays_date() {
+                let d = new Date(); // Получаем текущую дату и время
+
+                document.write(d.toLocaleString()); // Вставляем дату в документ            
+            }
+        </script>
+    </head>
+    <body>
+        <script>
+            let answer = 42; // Объявляем и инициализируем глобальную переменную
+            window.answer = 42; // Создаем новое свойство объекта Window
+        </script>
+
+        <script language="JavaScript">
+            function square(x) {
+                return x * x;
+            }
+
+            square(5)
+        </script>
+
+        <script>
+            alert(square(2));
+        </script>
+
+        Дата и время: <br>
+        <script language="JavaScript">
+            // Теперь вызываем определенную ранее функцию
+            print_todays_date();
+        </script>
+
+        <script>
+            let f1 = document;
+            f1.document.write("<script");
+            f1.document.write("document.write('<h2>Это сценарий в кавычках</h2>')");
+            f1.document.write("</" + "script>");
+        </script>
+
+        <noscript>
+            JavaScript is disabled in your browser. To get the best user experience on our website we recommend that you enable it.
+        </noscript>
+
+        <input type="chechbox" name="options" value="gifwrap" 
+        onclick="gifwrap = this.checked;">
+
+    
+        <a href='javascript:
+        let e1 = "", r1 = ""; /*Вычисляемое выражение и результат*/
+        do {
+            /* Отобразить выражение и результат, а затем запросить новое выражение*/
+            e1 = promt("Выражение: " + e1 +"\n" + r1 + "\n", e1);
+
+            try { r1 = "Результат: " + eval(e1); } /* Попробовать вычислить выражение*/
+            catch(ex) { r1 = ex; }   /* или запомнить ошибку*/
+        } while(e1); /* Продолжать, пока не будет введено  пустое выражение, */
+            /* или щелкнуть на кнопке отмены */
+        void 0;  /* Это предотвращает замену текущего документа */
+        '>
+        Обработчик JavaScript-выражений
+        </a>
+    
+        <a href='javascript:
+        let e2 = "", r2 = ""; 
+        do {
+            e2 = promt("Выражение: " + e2 +"\n" + r2 + "\n", e2);
+
+            try { r2 = "Результат: " + eval(e2); } 
+            catch(ex) { r2 = ex; }   
+        } while(e2); 
+        void 0;  
+        '>
+        Обработчик JavaScript-выражений
+        </a>
+        <script>
+            let name = decodeURIComponent(window.location.search.substring(6)) || "";
+            document.write("Привет " + name);
+        </script>
+
+        <script>
+            //Извлечение аргументов из URL-адреса
+            /**
+             * Эта функция выделяет в URL-адресе разделенные амперсандами пары аргументов 
+             * name=value из строки запроса. Они сохраняет эти пары в свойствах объекта и возвращает этот объект. Порядок использования:
+             * let args = getArgs();  // Извлечь аргументы из URL
+             * let q = args.q || "";  // Использовать аргумент, если определен,
+             *      // или значение по умолчанию
+             * let n = args.n ? parseInt(args.n) : 10; 
+             */ 
+
+             function getArgs() {
+                let args = new Object();
+                let query = location.search.substring(1);  // Получить строку запроса
+                let pairs = query.split("&");  // Разбить по амперсандам
+                for(let i = 0; i < pairs.length; i++) {
+                    let pos = pairs[i].indexOf('=');  // Отыскать пару "name=value"
+                    if (pos == -1) continue;  // не найдено - пропустить
+                    let argname = pairs[i].substring(0, pos);  // Извлечь имя
+                    let value = pairs[i].substring(pos + 1);  // Извлечь значение 
+                    value = decodeURIComponent(value);  // Преобразовать, если нужно
+                    args[argname] = value;  // Сохранить в виде свойства 
+                }
+                return args;   // Вернуть объект
+             }
+
+             document.write(getArgs());
+             console.log(getArgs());
+        </script>
+    </body>
+</html>

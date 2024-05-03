@@ -148,7 +148,7 @@ spread operator ...
 // Array.from(mySet);
 // [...mySet2];
 
-mySet2 = new Set([1, 2, 3, 4]);
+mySet2 = new Set([1, 4, 4, 2, 3, 4]);
 
 console.log(mySet2);
 console.log(mySet);

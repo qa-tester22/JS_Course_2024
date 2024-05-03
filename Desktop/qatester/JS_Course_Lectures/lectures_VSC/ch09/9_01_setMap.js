@@ -370,6 +370,9 @@ console.log(roles.delete("Admin"));  //  false
 */
 
 const naughty = new WeakSet();
+
+
+
 const children = [
     {name: "Suzy"},
     {name: "Derek"},
@@ -400,3 +403,13 @@ for(let child of children) {
 
 */
 
+console.log(userRoles2 instanceof Map);
+
+console.log(roles instanceof Map);
+
+console.log(roles instanceof Set);
+
+console.log(roles instanceof Object);
+
+
+console.log(roles instanceof String);

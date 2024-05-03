@@ -18,7 +18,7 @@ s.toLowerCase();
 
 Строка 
 */
-
+          0 1 2       -2 -1
 let str = "auto qa engineer";
 let newStr = '';
 
@@ -26,7 +26,7 @@ let newStr = '';
 
 let strLength = str.length;
 
-console.log(`Метод str.length: strLength = ${strLength}.`);
+console.log(`Свойство str.length: strLength = ${strLength}.`);
 
 // str.slice()*******************************************************
 

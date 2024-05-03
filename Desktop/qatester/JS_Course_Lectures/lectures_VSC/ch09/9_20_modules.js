@@ -1,11 +1,15 @@
 /*
 о модулях можно почитать 
 https://habr.com/ru/companies/otus/articles/798455/
+Модульность в JavaScript: CommonJS, AMD, ES Modules 
+
+https://habr.com/ru/companies/otus/articles/541596/
+Перестаньте использовать Page Objects (РО) и начните использовать App Actions
 
 w3schools.com
 
 Модули
-(файлы: 8_10_asyncPromise, message.js, person.js);
+(файлы: 9_10_asyncPromise, message.js, person.js);
 
 Модули JavaScript позволяют разбивать код на отдельные файлы.
 
@@ -60,7 +64,7 @@ export {name, age};
 
 /*
 Экспорт по умолчанию
-Давайте создадим еще один файл с именем message.jsи будем использовать его для демонстрации экспорта по умолчанию.
+Давайте создадим еще один файл с именем message.js и будем использовать его для демонстрации экспорта по умолчанию.
 
 В файле может быть только один экспорт по умолчанию.
 
@@ -76,7 +80,7 @@ const message = () => {
 export default message; 
 
 /*
-Импортировать
+Импортировать************************************************************************
 
 Импортировать модули в файл можно двумя способами в зависимости от того, называются ли они экспортом или экспортом по умолчанию.
 
@@ -84,10 +88,10 @@ export default message;
 
 Импорт из именованного экспорта
 Импортируйте именованный экспорт из файла person.js:
-в файл 8_10_asyncPromise.html
+в файл 9_10_asyncPromise.html
 */
 
-import { name, age} from "./person.js";
+import { name, age} from "../ch09/person.js";
 
 /*
 <!DOCTYPE html>
@@ -111,12 +115,13 @@ document.getElementById("demo").innerHTML = text;
 
 /*
 Импорт из экспорта по умолчанию
+
 Импортируйте экспорт по умолчанию из файла message.js:
-в файл 8_10_asyncPromise.html
+в файл 9_10_asyncPromise.html
 
 */
 
-import message from "./message.js";
+import message from "../ch09/message.js";
 
 /*
 <!DOCTYPE html>

@@ -51,7 +51,7 @@ function validateEmail(email) {
 
 const email = "jane@doe.com" ;
 // const email = "janedoe.com" ;
-// const email = null ;
+// const email = "null" ;
 // const email = undefined ;
 // const email = {email: "jane@doe.com"};
 
@@ -86,10 +86,10 @@ email нечто отличное от строки.
 недружественно по отношению к пользователю. Чтобы обезопасить себя от непредвиденной ошибки мы можем поместить свой код в блок оператора try ... catch.
 */
 
-const emailTry = null;  // oyps
+// const emailTry = null;  // oyps
 
 // const emailTry = "jane@doe.com"
-// const emailTry = "janedoe.com"
+const emailTry = "janedoe.com"
 
 try {
     const validatedEmailTry = validateEmail(emailTry);
